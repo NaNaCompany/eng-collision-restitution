@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN" data-config="locales/zh.js"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>含恢复系数的碰撞速度计算器 · 单位换算与公式 | NaNa Lab</title><meta name="description" content="根据线动量守恒和恢复系数，求第一个物体的碰撞后速度。 选择输入单位并计算规定条件下的一个值。">
+<link rel="canonical" href="https://nanalab.kr/eng-collision-restitution/zh/"><meta name="robots" content="index,follow"><meta property="og:type" content="website"><meta property="og:locale" content="zh_CN"><meta property="og:title" content="含恢复系数的碰撞速度计算器"><meta property="og:description" content="根据线动量守恒和恢复系数，求第一个物体的碰撞后速度。 选择输入单位并计算规定条件下的一个值。"><meta property="og:url" content="https://nanalab.kr/eng-collision-restitution/zh/"><meta property="og:image" content="https://nanalab.kr/eng-collision-restitution/zh/og.png"><meta name="twitter:card" content="summary_large_image"><link rel="icon" href="../icon.svg" type="image/svg+xml"><link rel="stylesheet" href="../style.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "含恢复系数的碰撞速度计算器", "url": "https://nanalab.kr/eng-collision-restitution/zh/", "description": "根据线动量守恒和恢复系数，求第一个物体的碰撞后速度。 选择输入单位并计算规定条件下的一个值。", "applicationCategory": "EducationalApplication", "operatingSystem": "Any", "inLanguage": "zh-CN", "isAccessibleForFree": true, "author": {"@type": "Organization", "name": "NaNa Lab", "url": "https://nanalab.kr/"}}</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9767176956440077"
+        crossorigin="anonymous"></script>
+<script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })
+            (window, document, 'script', 'dataLayer', 'GTM-NV2WWQXB');
+    </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZYSF0173P"></script>
+<script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-2ZYSF0173P');
+    </script>
+<link rel="alternate" hreflang="ko" href="https://nanalab.kr/eng-collision-restitution/"><link rel="alternate" hreflang="en" href="https://nanalab.kr/eng-collision-restitution/en/"><link rel="alternate" hreflang="es" href="https://nanalab.kr/eng-collision-restitution/es/"><link rel="alternate" hreflang="zh-CN" href="https://nanalab.kr/eng-collision-restitution/zh/"><link rel="alternate" hreflang="ja" href="https://nanalab.kr/eng-collision-restitution/ja/"><link rel="alternate" hreflang="de" href="https://nanalab.kr/eng-collision-restitution/de/"><link rel="alternate" hreflang="x-default" href="https://nanalab.kr/eng-collision-restitution/"><meta name="twitter:title" content="含恢复系数的碰撞速度计算器"><meta name="twitter:description" content="根据线动量守恒和恢复系数，求第一个物体的碰撞后速度。 选择输入单位并计算规定条件下的一个值。"><meta name="twitter:image" content="https://nanalab.kr/eng-collision-restitution/zh/og.png"></head><body><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NV2WWQXB" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+<a class="skip" href="#calculator">跳转到计算器</a>
+<header><a class="brand" href="https://nanalab.kr/">NaNa Lab <span aria-hidden="true">/</span> Engineering</a><span class="edition">E121 · 力学与材料</span></header><nav class="language-links" aria-label="语言"><a data-language="ko" lang="ko" hreflang="ko" href=".././">한국어</a><a data-language="en" lang="en" hreflang="en" href="../en/">English</a><a data-language="es" lang="es" hreflang="es" href="../es/">Español</a><a data-language="zh" lang="zh-CN" hreflang="zh-CN" href="../zh/" aria-current="page">简体中文</a><a data-language="ja" lang="ja" hreflang="ja" href="../ja/">日本語</a><a data-language="de" lang="de" hreflang="de" href="../de/">Deutsch</a></nav>
+<main><p class="eyebrow">一个公式，一个结果</p><h1>含恢复系数的碰撞速度计算器</h1><p class="intro">根据线动量守恒和恢复系数，求第一个物体的碰撞后速度。 选择输入单位并计算规定条件下的一个值。</p>
+<div class="workspace"><section class="panel"><h2>输入值</h2><form id="calculator" novalidate><div class="row"><label for="field-mone">第一个物体质量 m₁</label><div class="input-pair"><input id="field-mone" name="mone" type="text" inputmode="decimal" value="2" required autocomplete="off" spellcheck="false" aria-describedby="note-mone"><select id="unit-mone" name="unit-mone" aria-label="第一个物体质量 m₁ 单位"><option value="kg" selected>kg</option><option value="g">g</option><option value="u">u</option></select></div><p class="field-note" id="note-mone">换算为 SI 单位后大于零</p></div><div class="row"><label for="field-mtwo">第二个物体质量 m₂</label><div class="input-pair"><input id="field-mtwo" name="mtwo" type="text" inputmode="decimal" value="3" required autocomplete="off" spellcheck="false" aria-describedby="note-mtwo"><select id="unit-mtwo" name="unit-mtwo" aria-label="第二个物体质量 m₂ 单位"><option value="kg" selected>kg</option><option value="g">g</option><option value="u">u</option></select></div><p class="field-note" id="note-mtwo">换算为 SI 单位后大于零</p></div><div class="row"><label for="field-uone">第一个物体初速度 u₁</label><div class="input-pair"><input id="field-uone" name="uone" type="text" inputmode="decimal" value="5" required autocomplete="off" spellcheck="false" aria-describedby="note-uone"><select id="unit-uone" name="unit-uone" aria-label="第一个物体初速度 u₁ 单位"><option value="ms" selected>m/s</option><option value="kms">km/s</option><option value="kmh">km/h</option><option value="cms">cm/s</option></select></div><p class="field-note" id="note-uone">可为负数、零或正数</p></div><div class="row"><label for="field-utwo">第二个物体初速度 u₂</label><div class="input-pair"><input id="field-utwo" name="utwo" type="text" inputmode="decimal" value="-1" required autocomplete="off" spellcheck="false" aria-describedby="note-utwo"><select id="unit-utwo" name="unit-utwo" aria-label="第二个物体初速度 u₂ 单位"><option value="ms" selected>m/s</option><option value="kms">km/s</option><option value="kmh">km/h</option><option value="cms">cm/s</option></select></div><p class="field-note" id="note-utwo">可为负数、零或正数</p></div><div class="row"><label for="field-restitution">恢复系数 e</label><div class="input-pair"><input id="field-restitution" name="restitution" type="text" inputmode="decimal" value="0.80000000000000004" required autocomplete="off" spellcheck="false" aria-describedby="note-restitution"><select id="unit-restitution" name="unit-restitution" aria-label="恢复系数 e 单位"><option value="1" selected>比值</option><option value="percent">%</option></select></div><p class="field-note" id="note-restitution">0 至 1 的比值</p></div><label class="condition"><input type="checkbox" name="conditions" id="conditions">我确认所述接近方向正确，且外部冲量可忽略。</label><div class="actions"><button class="primary" type="submit">计算</button><button type="button" id="example">填入示例</button><button type="button" id="reset">清空</button></div></form><p class="local-note">计算在此浏览器中完成。支持 1.2e-3 等科学记数法。请勿使用千位分隔符。</p><noscript>计算需要 JavaScript。禁用时仍可阅读公式和适用条件。</noscript></section>
+<section id="result" class="panel output-panel" aria-labelledby="result-heading"><h2 id="result-heading">计算结果</h2><p class="result-caption">第一个物体的末速度 v₁</p><output id="result-value" class="number" form="calculator" aria-live="polite">—</output><span id="output-unit-label" class="result-unit"></span><div id="output-control"><label for="output-unit">结果显示单位</label><select id="output-unit"><option value="ms" selected>m/s</option><option value="kms">km/s</option><option value="kmh">km/h</option><option value="cms">cm/s</option></select></div><p id="status" class="status" role="status">输入数值后点击“计算”。</p><button type="button" id="copy-result" class="copy">复制结果</button><div class="formula"><span>公式</span><p>v₁ = [(m₁ − e m₂)u₁ + (1 + e)m₂u₂] / (m₁ + m₂)</p></div></section></div>
+<section class="reference"><h2>适用条件</h2><p>条件：一维接触碰撞，外部冲量可忽略，0≤e≤1。沿正方向第一个物体位于第二个物体之后，因此须有 u₁≥u₂。初速度相等时返回速度不变的极限值。不计斜碰撞、转动和破碎。</p><p class="small">显示值为浮点近似值。不计算设计安全系数或未提供的误差贡献。</p><details><summary>公式依据与制作信息</summary><ul><li><a href="https://openstax.org/books/college-physics/pages/8-5-inelastic-collisions-in-one-dimension" target="_blank" rel="noopener noreferrer">OpenStax — one-dimensional inelastic collisions</a></li><li><a href="https://ocw.mit.edu/courses/2-003j-dynamics-and-control-i-spring-2007/resources/lec06/" target="_blank" rel="noopener noreferrer">MIT OCW · One-dimensional collision and coefficient of restitution</a></li></ul><p class="small">代码、说明、图标和预览图均由 NaNa Lab 原创编写或制作。未复制所链接参考资料的正文、图表或代码。</p><p class="small">物理常数：<a href="https://physics.nist.gov/cuu/Constants/">NIST / CODATA 2022</a>。μ₀ 和 ε₀ 为基于测量的推荐值，不是定义上的精确常数。所用数值及精度说明见<a href="../SOURCES.md">来源记录</a>。</p><p class="small">该网站包括 Google 广告和分析以及 Cloudflare 分析。</p></details></section></main>
+<footer>© 2026 NaNa Lab · 原创单值工程计算工具 · <a href="https://github.com/NaNaCompany/eng-collision-restitution">源代码</a></footer><a class="more-apps" href="https://nanalab.kr/apps/">More Apps</a>
+<script type="module" src="../app.js"></script>
+<script>
+(function () {
+  function ensureBeacon() {
+    // Cloudflare may inject its beacon at the edge. Reuse that script when present.
+    if (document.querySelector('script[src*="static.cloudflareinsights.com/beacon.min.js"]')) return;
+    var beacon = document.createElement('script');
+    beacon.defer = true;
+    beacon.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+    beacon.setAttribute('data-cf-beacon', JSON.stringify({token: '9f3423bb0d034d91bbe1a12afeff2429'}));
+    document.head.appendChild(beacon);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ensureBeacon, {once: true});
+  else ensureBeacon();
+})();
+</script>
+</body></html>

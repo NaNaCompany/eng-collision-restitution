@@ -1,0 +1,84 @@
+export const tool={
+  "id": "E121",
+  "slug": "eng-collision-restitution",
+  "title": "반발계수 충돌 후 속도 계산기",
+  "title_en": "Collision velocity with restitution calculator",
+  "category": "역학·재료",
+  "category_en": "Mechanics and materials",
+  "fields": [
+    {
+      "key": "mone",
+      "label": "첫 물체 질량 m₁",
+      "label_en": "First body mass m₁",
+      "dimension": "mass",
+      "example": 2,
+      "constraint": "positive",
+      "display_unit": "kg",
+      "display_value": "2"
+    },
+    {
+      "key": "mtwo",
+      "label": "둘째 물체 질량 m₂",
+      "label_en": "Second body mass m₂",
+      "dimension": "mass",
+      "example": 3,
+      "constraint": "positive",
+      "display_unit": "kg",
+      "display_value": "3"
+    },
+    {
+      "key": "uone",
+      "label": "첫 물체 충돌 전 속도 u₁",
+      "label_en": "First initial velocity u₁",
+      "dimension": "speed",
+      "example": 5,
+      "constraint": "signed",
+      "display_unit": "ms",
+      "display_value": "5"
+    },
+    {
+      "key": "utwo",
+      "label": "둘째 물체 충돌 전 속도 u₂",
+      "label_en": "Second initial velocity u₂",
+      "dimension": "speed",
+      "example": -1,
+      "constraint": "signed",
+      "display_unit": "ms",
+      "display_value": "-1"
+    },
+    {
+      "key": "restitution",
+      "label": "반발계수 e",
+      "label_en": "Coefficient of restitution e",
+      "dimension": "fraction",
+      "example": 0.8,
+      "constraint": "unitInterval",
+      "display_unit": "1",
+      "display_value": "0.80000000000000004"
+    }
+  ],
+  "result_label": "첫 물체 충돌 후 속도 v₁",
+  "result_label_en": "First final velocity v₁",
+  "result_dimension": "speed",
+  "formula": "v₁ = [(m₁ − e m₂)u₁ + (1 + e)m₂u₂] / (m₁ + m₂)",
+  "purpose": "일직선에서 충돌하는 두 물체의 운동량과 반발계수로 첫 물체의 충돌 후 속도를 계산합니다.",
+  "purpose_en": "Find the first body’s final velocity from linear momentum and the coefficient of restitution.",
+  "assumptions": "두 물체가 같은 직선에서 충돌하며 충돌 중 외부 충격량을 무시합니다. 첫 물체는 +축 방향으로 둘째 물체의 뒤에 있어 u₁ ≥ u₂로 입력합니다. e는 0~1입니다. 두 속도가 같으면 변화가 없는 극한값을 표시합니다. 비스듬한 충돌·회전·물체 파손은 계산하지 않습니다.",
+  "assumptions_en": "Required: one-dimensional contact, negligible external impulse, and 0 ≤ e ≤ 1. Body 1 is behind body 2 along the positive axis, so u₁ ≥ u₂. Equal initial velocities give the unchanged limiting value. Excluded: oblique impact, rotation, and fragmentation.",
+  "sources": [
+    {
+      "label": "OpenStax — one-dimensional inelastic collisions",
+      "url": "https://openstax.org/books/college-physics/pages/8-5-inelastic-collisions-in-one-dimension"
+    },
+    {
+      "label": "MIT OCW · One-dimensional collision and coefficient of restitution",
+      "url": "https://ocw.mit.edu/courses/2-003j-dynamics-and-control-i-spring-2007/resources/lec06/"
+    }
+  ],
+  "condition": "두 물체의 충돌 방향과 외부 충격량을 무시하는 조건을 확인했습니다.",
+  "condition_en": "I confirm the stated approach direction and negligible external impulse.",
+  "site": "https://nanalab.kr/eng-collision-restitution/",
+  "repository": "https://github.com/NaNaCompany/eng-collision-restitution",
+  "groups": [],
+  "output_unit": "ms"
+};

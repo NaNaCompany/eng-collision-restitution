@@ -1,0 +1,57 @@
+{
+  "id": "E121",
+  "value": -1.48,
+  "value_high_precision": "-1.48",
+  "method": "Independent Python Decimal arithmetic at 80 significant digits; Taylor series for sine and arcsine, Decimal exp/sqrt, separate physical balance or geometry. No JavaScript imports.",
+  "cases": [
+    {
+      "name": "equal-mass elastic velocity exchange",
+      "values": {
+        "mone": 2,
+        "mtwo": 2,
+        "restitution": 1
+      },
+      "expected": -1.0
+    },
+    {
+      "name": "perfectly inelastic common final velocity",
+      "values": {
+        "restitution": 0
+      },
+      "expected": 1.4
+    },
+    {
+      "name": "equal initial velocities unchanged",
+      "values": {
+        "uone": 7,
+        "utwo": 7
+      },
+      "expected": 7.0
+    },
+    {
+      "name": "equal-mass stationary target exact zero",
+      "values": {
+        "mone": 2,
+        "mtwo": 2,
+        "restitution": 1,
+        "utwo": 0
+      },
+      "expected": 0.0
+    },
+    {
+      "name": "separating initial velocities violate stated contact orientation",
+      "values": {
+        "uone": -2,
+        "utwo": 3
+      },
+      "throws": true
+    },
+    {
+      "name": "superelastic coefficient is outside model",
+      "values": {
+        "restitution": 1.01
+      },
+      "throws": true
+    }
+  ]
+}
